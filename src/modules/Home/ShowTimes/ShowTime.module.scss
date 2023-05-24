@@ -1,0 +1,27 @@
+.main {
+   display: flex;
+   .listHeThong {
+      display: flex;
+      flex-direction: column;
+      .item {
+         width: 70px;
+         height: 70px;
+         cursor: pointer;
+         margin-bottom: 40px;
+         .img {
+            width: 100%;
+         }
+      }
+   }
+   .listCumRap {
+      .myCard{
+         margin: 0 10px 2px;
+         padding:0  10px;
+         overflow: hidden;
+         width: 50%;
+         p{
+            white-space: nowrap;
+         }
+      }
+   }
+}

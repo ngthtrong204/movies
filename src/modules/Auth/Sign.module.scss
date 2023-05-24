@@ -1,0 +1,32 @@
+.main{
+   width: 30vw;
+   border: 1px solid transparent;
+   border-radius: 20px;
+   padding: 25px;
+   .title{
+      text-align: center;
+      margin-bottom: 20px;
+   }
+   .input{
+      margin-top: 20px;
+   }
+   .smallText{
+      color: rgb(190, 17, 17);
+      font-size: 13px;
+   }  
+   a{
+      text-align: right;
+      display: block;
+      cursor: pointer;
+      .signup{
+         font-size: 14px;
+         margin: 0;
+         transition: all .5s;
+         padding-bottom: 2px;
+      }
+      .signup:hover{
+         color: rgb(6, 184, 74);
+         text-decoration: underline;
+      }
+   }
+}
