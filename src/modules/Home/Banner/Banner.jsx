@@ -3,11 +3,8 @@ import style from "./Banner.module.scss"
 import { apiGetBanner } from '../../../api/movies.API'
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, FreeMode, A11y } from 'swiper';
+import {  Autoplay, FreeMode, A11y, Mousewheel } from 'swiper';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
 import 'swiper/css/free-mode';
 
@@ -40,10 +37,11 @@ function Banner() {
   return (
     <div className={style.main}>
       <Swiper
-        modules={[Navigation, Pagination, Autoplay, FreeMode, A11y]}
+        modules={[ Autoplay,Mousewheel, FreeMode, A11y]}
         spaceBetween={0}
         slidesPerView={1}
-        autoplay={{ delay: 3000 }}
+        // mousewheel={true}
+        autoplay
         loop={true}
       >
         {bannerItems && bannerItems.map(item => {

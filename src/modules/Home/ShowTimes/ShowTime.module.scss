@@ -1,5 +1,6 @@
 .main {
-   display: flex;
+   height: 650px;
+
    .listHeThong {
       display: flex;
       flex-direction: column;
@@ -7,22 +8,23 @@
          width: 70px;
          height: 70px;
          cursor: pointer;
-         margin-bottom: 40px;
+         margin: 20px 0;
          .img {
             width: 100%;
          }
       }
    }
    .listCumRap {
-      .myCard{
-         cursor: pointer;
-         margin: 0 10px 2px;
-         padding:0  10px;
-         overflow: hidden;
-         width: 50%;
-         p{
-            white-space: nowrap;
-         }
-      }
+      overflow-y: scroll;
+   }
+   .listLichChieu {
+      overflow-y: scroll;
+   }
+   .myCard {
+      cursor: pointer;
+      margin: 0 10px 2px;
+      padding: 0 10px;
+      overflow: hidden;
+      white-space: nowrap;
    }
 }

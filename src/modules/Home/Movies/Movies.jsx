@@ -30,7 +30,7 @@ function Movies() {
 
       {movies && movies.map((movie) => {
         return (
-          <div className="col-3 my-2">
+          <div key={movie.maPhim} className="col-3 my-2">
             <div className="card bg-dark text-white " style={{ width: '15rem' }}>
               <img src={movie.hinhAnh} className={style.img} alt="..." />
               <div className="card-body p-1">
