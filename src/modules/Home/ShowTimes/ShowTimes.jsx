@@ -29,7 +29,6 @@ function ShowTimes() {
   useEffect(() => {
     //Khỏi chạy heThongRap mặc định sau khi đã có data
     setHeThongSelect(data[0])
-    // setCumRapSelect(data[0][0])
   }, [data])
 
 
@@ -50,7 +49,6 @@ function ShowTimes() {
             <div className={` col-lg-5`}>
               <h3 className='text-center'>Rạp chiếu</h3>
               <div className={`${heThongSelect && style.listCumRap}`}>
-
                 {heThongSelect && heThongSelect.lstCumRap.map((cumRap) => {
                   return <div onClick={() => { setCumRapSelect(cumRap) }} key={cumRap.maCumRap} className={` ${style.myCard} text-white card bg-dark`}>
                     <div className="card-body">

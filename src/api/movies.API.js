@@ -24,7 +24,7 @@ export const apiGetShowtime = async () => {
    return data;
 };
 
-export const apiGetMovieDetails = async (movieId) => {
+export const apiGetMovieInfo = async (movieId) => {
    const { data } = await axiosClient.get("/QuanLyPhim/LayThongTinPhim", {
       params: {
          MaPhim: movieId,
@@ -32,3 +32,12 @@ export const apiGetMovieDetails = async (movieId) => {
    });
    return data;
 };
+export const apiGetMovieTime = async (movieId) => {
+   const { data } = await axiosClient.get("/QuanLyRap/LayThongTinLichChieuPhim", {
+      params: {
+         MaPhim: movieId,
+      },
+   });
+   return data;
+};
+

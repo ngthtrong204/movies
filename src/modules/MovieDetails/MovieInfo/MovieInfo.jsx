@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import style from "./MovieInfo.module.scss"
-import { apiGetMovieDetails } from '../../../api/movies.API'
+import { apiGetMovieInfo } from '../../../api/movies.API'
 import dayjs from 'dayjs'
 function MovieInfo({ movieId }) {
    const [movie, setMovie] = useState(null)
    const getMovieDetail = async () => {
       try {
-         const movie = await apiGetMovieDetails(movieId)
+         const movie = await apiGetMovieInfo(movieId)
          setMovie(movie.content)
       } catch (error) {
          console.log(error.response?.data?.content);
