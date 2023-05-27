@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { apiGetShowtime } from '../../../api/movies.API';
 import style from "./ShowTime.module.scss"
+import { useNavigate } from 'react-router-dom';
 
 
 function ShowTimes() {
+  const navigate = useNavigate()
   const [data, setData] = useState([])
   const [heThongSelect, setHeThongSelect] = useState(null) //biến chứa dữ liệu của heThongRap được chọn
   const [cumRapSelect, setCumRapSelect] = useState(null) //biến chứa dữ liệu của cumRap được chọn
@@ -45,32 +47,35 @@ function ShowTimes() {
                 </div>
               })}
             </div>
-            <div className={`${heThongSelect && style.listCumRap} col-lg-5`}>
-
+            <div className={` col-lg-5`}>
               <h3 className='text-center'>Rạp chiếu</h3>
-              {heThongSelect && heThongSelect.lstCumRap.map((cumRap) => {
-                return <div onClick={() => { setCumRapSelect(cumRap) }} key={cumRap.maCumRap} className={` ${style.myCard} text-white card bg-dark`}>
-                  <div className="card-body">
-                    <h5 className='card-title'>{cumRap.tenCumRap}</h5>
-                    <p className='card-subtitle text-muted"'>{cumRap.diaChi}</p>
-                  </div>
-                </div>
-              })}
-            </div>
-            <div className={`${cumRapSelect && style.listLichChieu} col-lg-6`}>
+              <div className={`${heThongSelect && style.listCumRap}`}>
 
-              <h3 className='text-center'>Phim đang chiếu</h3>
-              {cumRapSelect && cumRapSelect.danhSachPhim.map((lichChieu) => {
-                if (lichChieu.dangChieu) {
-                  return <div key={lichChieu.maPhim} className={` ${style.myCard} text-white card bg-dark`}>
+                {heThongSelect && heThongSelect.lstCumRap.map((cumRap) => {
+                  return <div onClick={() => { setCumRapSelect(cumRap) }} key={cumRap.maCumRap} className={` ${style.myCard} text-white card bg-dark`}>
                     <div className="card-body">
-                      <h5 className='card-title'>{lichChieu.tenPhim}</h5>
-                      <p className='card-subtitle text-muted"'>{lichChieu.hot && "hot"}</p>
+                      <h5 className='card-title'>{cumRap.tenCumRap}</h5>
+                      <p className='card-subtitle text-muted"'>{cumRap.diaChi}</p>
                     </div>
                   </div>
-                } return null
+                })}
+              </div>
 
-              })}
+            </div>
+            <div className={` col-lg-5`}>
+              <h3 className='text-center'>Phim đang chiếu</h3>
+              <div className={`${cumRapSelect && style.listCumRap}`}>
+                {cumRapSelect && cumRapSelect.danhSachPhim.map((lichChieu) => {
+                  if (lichChieu.dangChieu) {
+                    return <div  key={lichChieu.maPhim} className={` ${style.myCard} text-white card bg-dark`}>
+                      <div className="card-body">
+                        <h5 className='card-title'>{lichChieu.tenPhim}</h5>
+                        <p className='card-subtitle text-muted"'>{lichChieu.hot && "hot"}</p>
+                      </div>
+                    </div>
+                  } return null
+                })}
+              </div>
             </div>
           </div>
         </div>

@@ -1,6 +1,4 @@
 .main {
-   height: 650px;
-
    .listHeThong {
       display: flex;
       flex-direction: column;
@@ -15,9 +13,7 @@
       }
    }
    .listCumRap {
-      overflow-y: scroll;
-   }
-   .listLichChieu {
+      height: 650px;
       overflow-y: scroll;
    }
    .myCard {

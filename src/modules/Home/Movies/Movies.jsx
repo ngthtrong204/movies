@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { apiGetMovies } from '../../../api/movies.API'
 import ModalVideo from 'react-modal-video'
 import style from "./Movies.module.scss"
+import { useNavigate } from 'react-router-dom'
 function Movies() {
+  const navigate = useNavigate()
   const [movies, setMovies] = useState([])
   const [isOpen, setIsOpen] = useState(false)
   const [videoID, setVideoID] = useState("")
@@ -30,9 +32,9 @@ function Movies() {
 
       {movies && movies.map((movie) => {
         return (
-          <div key={movie.maPhim} className="col-3 my-2">
+          <div  key={movie.maPhim} className="col-3 my-2">
             <div className="card bg-dark text-white " style={{ width: '15rem' }}>
-              <img src={movie.hinhAnh} className={style.img} alt="..." />
+              <img onClick={()=>navigate(`movies/${movie.maPhim}`)} src={movie.hinhAnh} className={style.img} alt="..." />
               <div className="card-body p-1">
                 <div className={`${style.title} `}>
                   <p className='m-0 d-block'>
@@ -41,7 +43,7 @@ function Movies() {
                 </div>
                 <div className="d-flex justify-content-between">
                   <button className="btn-success px-4 btn" onClick={() => openTrailer(movie.trailer)}>TRAILER</button>
-                  <button className="btn btn-success px-4">ĐẶT VÉ</button>
+                  <button onClick={()=>navigate(`movies/${movie.maPhim}`)} className="btn btn-success px-4">ĐẶT VÉ</button>
                 </div>
               </div>
             </div>
