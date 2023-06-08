@@ -21,7 +21,6 @@ function App() {
           <Route path='/' element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="/movies/:movieId" element={<MovieDetails />} />
-
           </Route>
           <Route path="/" element={<AuthLayout></AuthLayout>}>
             <Route path="/signin" element={<SignIn></SignIn>}></Route>
